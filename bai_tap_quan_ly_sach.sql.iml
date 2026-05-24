@@ -1,11 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<module type="JAVA_MODULE" version="4">
-  <component name="NewModuleRootManager" inherit-compiler-output="true">
-    <exclude-output />
-    <content url="file://$MODULE_DIR$">
-      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
-    </content>
-    <orderEntry type="inheritedJdk" />
-    <orderEntry type="sourceFolder" forTests="false" />
-  </component>
-</module>
+CREATE DATABASE "LibraryDB";
+CREATE SCHEMA library;
+CREATE TABLE library.books (
+        book_id SERIAL PRIMARY KEY,
+        title VARCHAR(100) NOT NULL,
+author VARCHAR(50) NOT NULL,
+published_year INT,
+price NUMERIC(10, 2)
+);
+ALTER TABLE library.books
+ADD COLUMN created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP;
+DROP TABLE library.books;
+
